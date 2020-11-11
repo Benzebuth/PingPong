@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://script/Main.gd" type="Script" id=1]
 [ext_resource path="res://ressource/white.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://ressource/circle_dot.png" type="Texture" id=7]
 [ext_resource path="res://ressource/red.png" type="Texture" id=8]
 [ext_resource path="res://ressource/noir.png" type="Texture" id=9]
+[ext_resource path="res://ressource/darkgreen_border.png" type="Texture" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -207,6 +208,34 @@ texture = ExtResource( 2 )
 position = Vector2( 512, 471 )
 scale = Vector2( 0.5, 6.51563 )
 texture = ExtResource( 2 )
+
+[node name="darkgreen_border" type="Sprite" parent="TerrainDecor"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 936, 80 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+
+[node name="darkgreen_border2" type="Sprite" parent="TerrainDecor"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 936, 528 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+flip_v = true
+
+[node name="darkgreen_border3" type="Sprite" parent="TerrainDecor"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 88.0001, 528 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+flip_h = true
+flip_v = true
+
+[node name="darkgreen_border4" type="Sprite" parent="TerrainDecor"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 88, 80.0001 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+flip_h = true
 [connection signal="body_entered" from="Goal/Goal Gauche" to="." method="_on_Goal_Gauche_body_entered"]
 [connection signal="body_entered" from="Goal/Goal Droite" to="." method="_on_Goal_Droite_body_entered"]
 [connection signal="body_entered" from="ZoneMap/Area2DGauche" to="." method="_on_Area2DGauche_body_entered"]

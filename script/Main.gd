@@ -1,6 +1,8 @@
 extends Node2D
 
 onready var ball_obj = preload("res://scene/Ball.tscn").instance()
+onready var new_goal = preload("res://scene/Goal.tscn").instance()
+
 
 var scorePone: = 0
 var scorePtwo: = 0
@@ -10,11 +12,15 @@ onready var monTimer = $TimerBut
 func _ready():
 	ball_obj.position = Vector2(500,300)
 	add_child(ball_obj)
+	
 
 ### Goal pour P2
 func _on_Goal_Gauche_body_entered(body):
+	add_child(new_goal)
 	scorePtwo += 1
 	$"Hud/CenterContainer/HBoxContainer/score P2".text = str(scorePtwo)
+	new_goal.get_node("Score_p1").text = str(scorePone)
+	new_goal.get_node("Score_p2").text = str(scorePtwo)
 	body.queue_free()
 	monTimer.start()
 	add_child(monTimer)
@@ -22,10 +28,12 @@ func _on_Goal_Gauche_body_entered(body):
 
 ### Goal pour P1
 func _on_Goal_Droite_body_entered(body):
+	add_child(new_goal)
 	scorePone += 1
 	$"Hud/CenterContainer/HBoxContainer/score P1".text = str(scorePone)
+	new_goal.get_node("Score_p1").text = str(scorePone)
+	new_goal.get_node("Score_p2").text = str(scorePtwo)
 	body.queue_free()
-	
 	monTimer.start()
 	add_child(monTimer)
 #	print(scorePone," - ", scorePtwo)
@@ -48,6 +56,7 @@ func _on_Area2DDroite_body_entered(body):
 ### Replacer la ball et donner le bon sens de départ
 func _on_TimerBut_timeout():
 #	print("Timeout du timer")
+	remove_child(new_goal)
 	direction_actuel_ball *= -1
 	ball_obj = load("res://scene/Ball.tscn").instance()
 	if direction_actuel_ball == 1:
@@ -57,3 +66,4 @@ func _on_TimerBut_timeout():
 		
 	ball_obj.setting_ball(direction_actuel_ball)
 	add_child(ball_obj)
+
