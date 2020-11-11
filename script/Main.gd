@@ -18,7 +18,7 @@ func _ready():
 func _on_Goal_Gauche_body_entered(body):
 	add_child(new_goal)
 	scorePtwo += 1
-	$"Hud/CenterContainer/HBoxContainer/score P2".text = str(scorePtwo)
+	$Hud/HBoxContainer/CenterContainer/HBoxContainer/score_P2.text = str(scorePtwo)
 	new_goal.get_node("Score_p1").text = str(scorePone)
 	new_goal.get_node("Score_p2").text = str(scorePtwo)
 	body.queue_free()
@@ -30,7 +30,7 @@ func _on_Goal_Gauche_body_entered(body):
 func _on_Goal_Droite_body_entered(body):
 	add_child(new_goal)
 	scorePone += 1
-	$"Hud/CenterContainer/HBoxContainer/score P1".text = str(scorePone)
+	$Hud/HBoxContainer/CenterContainer/HBoxContainer/score_P1.text = str(scorePone)
 	new_goal.get_node("Score_p1").text = str(scorePone)
 	new_goal.get_node("Score_p2").text = str(scorePtwo)
 	body.queue_free()
