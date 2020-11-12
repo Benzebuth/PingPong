@@ -1,17 +1,18 @@
 extends Node2D
 
+###Attributs
 onready var ball_obj = preload("res://scene/Ball.tscn").instance()
 onready var new_goal = preload("res://scene/Goal.tscn").instance()
 onready var audio_sc = preload("res://scene/AudioCrowdWin.tscn")
+onready var monTimer = $TimerBut
 
 var scorePone: = 0
 var scorePtwo: = 0
 var direction_actuel_ball: = 1
-onready var monTimer = $TimerBut
-
 
 signal cest_le_but
 
+###Methods
 func _ready():
 	ball_obj.position = Vector2(500,300)
 	add_child(ball_obj)
@@ -43,8 +44,6 @@ func _on_Goal_Droite_body_entered(body):
 	body.queue_free() # ball delete
 	monTimer.start()
 
-
-
 ### GESTION DE LA BALL sur le terrain (2 area gauche/droite)
 func _on_Area2DGauche_body_entered(body):
 #	print("ZONE GAUCHE => ACTIVE ", direction_actuel_ball)
@@ -68,7 +67,6 @@ func _on_TimerBut_timeout():
 		ball_obj.position = Vector2(550, 300)
 	if direction_actuel_ball == -1:
 		ball_obj.position = Vector2(450, 300)
-		
 	ball_obj.setting_ball(direction_actuel_ball)
 	add_child(ball_obj)
 

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 ### attributs
 export (int) var vitesse_player_one = 50
-var motion = Vector2.ZERO
+var motion: = Vector2.ZERO
 var playerone = "player1" setget set_player_name, get_player_name
 
 ###Methods
@@ -13,7 +13,6 @@ func _physics_process(_delta):
 	mouvement_player()
 	
 	motion = move_and_slide(motion, Vector2.ZERO)
-
 	motion.y = lerp(motion.y, 0, 0.04)
 
 func mouvement_player():

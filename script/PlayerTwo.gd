@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 ### attributs
 export (int) var vitesse_player_two = 50
-var motion = Vector2.ZERO
+var motion: = Vector2.ZERO
 var playertwo = "player2" setget set_player_name, get_player_name
 
 ###Methods

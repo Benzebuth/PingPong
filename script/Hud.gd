@@ -1,10 +1,10 @@
 extends Control
 
+### Attributs
 onready var pause_background = preload("res://scene/PauseBackground.tscn").instance()
 var last_key_presse
-var array_of_bind
 
-
+### Methods
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
 		if not get_tree().paused:
@@ -19,7 +19,6 @@ func _input(event):
 	if event is InputEventKey :
 		last_key_presse = event
 #		print(last_key_presse.scancode)
-
 
 ### Remapping de touche
 func _on_Button_p1mod_up_pressed():
