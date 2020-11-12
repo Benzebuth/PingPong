@@ -9,7 +9,7 @@ var playerone = "player1" setget set_player_name, get_player_name
 func _ready():
 	pass # Replace with function body.
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	mouvement_player()
 	
 	motion = move_and_slide(motion, Vector2.ZERO)
@@ -29,7 +29,4 @@ func set_player_name(parma1):
 func get_player_name():
 	return playerone
 
-### Input clavier
-func _input(event):
-	pass
-	
+

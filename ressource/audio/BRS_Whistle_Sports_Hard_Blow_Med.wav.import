@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BRS_Whistle_Sports_Hard_Blow_Med.wav-094dd7c2a31a1899ebaa0cc053e8d32e.sample"
+
+[deps]
+
+source_file="res://ressource/audio/BRS_Whistle_Sports_Hard_Blow_Med.wav"
+dest_files=[ "res://.import/BRS_Whistle_Sports_Hard_Blow_Med.wav-094dd7c2a31a1899ebaa0cc053e8d32e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,25 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ressource/redrocketacad.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://script/Hud.gd" type="Script" id=2]
 [ext_resource path="res://ressource/arrow_white.png" type="Texture" id=3]
 [ext_resource path="res://ressource/pause_button.png" type="Texture" id=4]
+[ext_resource path="res://ressource/audio/alarm_grave.wav" type="AudioStream" id=5]
 
-[sub_resource type="Theme" id=4]
+[sub_resource type="Theme" id=1]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 30
 outline_size = 1
 outline_color = Color( 0.854902, 0.0588235, 0.858824, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 19
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 30
 outline_size = 1
 outline_color = Color( 1, 0.4, 0, 1 )
@@ -42,7 +43,7 @@ animations = [ {
 pause_mode = 2
 rect_min_size = Vector2( 1024, 0 )
 rect_scale = Vector2( 1, 0.9 )
-theme = SubResource( 4 )
+theme = SubResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -70,22 +71,28 @@ __meta__ = {
 }
 
 [node name="Button_p1mod_up" type="Button" parent="HBoxContainer/ZoneBoutonP1/HBoxContainerP1"]
-margin_right = 30.0
+margin_right = 48.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 25, 25 )
+rect_min_size = Vector2( 48, 25 )
+hint_tooltip = "Press a keyboard touch and click 
+on the left (up) or right (down) button
+to assign new key."
 focus_mode = 0
-text = "Up"
+text = "W"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button_p1mod_down" type="Button" parent="HBoxContainer/ZoneBoutonP1/HBoxContainerP1"]
-margin_left = 34.0
-margin_right = 82.0
+margin_left = 52.0
+margin_right = 100.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 25, 25 )
+rect_min_size = Vector2( 48, 25 )
+hint_tooltip = "Press a keyboard touch and click 
+on the left (up) or right (down) button
+to assign new key."
 focus_mode = 0
-text = "Down"
+text = "S"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -114,7 +121,7 @@ margin_bottom = 39.0
 margin_right = 30.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 30, 0 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 
@@ -124,7 +131,7 @@ margin_top = 1.0
 margin_right = 134.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 100, 25 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "SCORE"
 align = 1
 valign = 1
@@ -133,7 +140,7 @@ valign = 1
 margin_left = 138.0
 margin_right = 160.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -183,19 +190,29 @@ __meta__ = {
 }
 
 [node name="Button_p2mod_up" type="Button" parent="HBoxContainer/ZoneBoutonP2/HBoxContainer"]
-margin_right = 30.0
+margin_right = 48.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 25, 25 )
+rect_min_size = Vector2( 48, 25 )
+hint_tooltip = "Press a keyboard touch and click 
+on the left (up) or right (down) button
+to assign new key."
 focus_mode = 0
 text = "Up"
 
 [node name="Button_p2mod_down" type="Button" parent="HBoxContainer/ZoneBoutonP2/HBoxContainer"]
-margin_left = 34.0
-margin_right = 82.0
+margin_left = 52.0
+margin_right = 100.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 25, 25 )
+rect_min_size = Vector2( 48, 25 )
+hint_tooltip = "Press a keyboard touch and click 
+on the left (up) or right (down) button
+to assign new key."
 focus_mode = 0
 text = "Down"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
 [connection signal="pressed" from="HBoxContainer/ZoneBoutonP1/HBoxContainerP1/Button_p1mod_up" to="." method="_on_Button_p1mod_up_pressed"]
 [connection signal="pressed" from="HBoxContainer/ZoneBoutonP1/HBoxContainerP1/Button_p1mod_down" to="." method="_on_Button_p1mod_down_pressed"]
 [connection signal="toggled" from="HBoxContainer/ZoneBoutonPause/Button" to="." method="_on_Button_toggled"]

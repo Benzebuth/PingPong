@@ -12,6 +12,7 @@ bounce = 0.8
 radius = 25.0361
 
 [node name="Ball" type="RigidBody2D"]
+z_index = -1
 collision_mask = 30
 physics_material_override = SubResource( 1 )
 custom_integrator = true

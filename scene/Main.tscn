@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://script/Main.gd" type="Script" id=1]
 [ext_resource path="res://ressource/white.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://ressource/red.png" type="Texture" id=8]
 [ext_resource path="res://ressource/noir.png" type="Texture" id=9]
 [ext_resource path="res://ressource/darkgreen_border.png" type="Texture" id=10]
+[ext_resource path="res://ressource/redrocketacad.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -54,6 +55,10 @@ extents = Vector2( 256, 272 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 256, 272 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
+font_data = ExtResource( 11 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -117,13 +122,16 @@ texture = ExtResource( 9 )
 [node name="Sprite2" type="Sprite" parent="World/Colihautbas"]
 position = Vector2( 512, 592 )
 scale = Vector2( 32, 1 )
+z_index = -7
 texture = ExtResource( 9 )
 
 [node name="PlayerOne" parent="." instance=ExtResource( 4 )]
 position = Vector2( 72, 304 )
+z_index = -1
 
 [node name="PlayerOne2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 952, 304 )
+z_index = -1
 
 [node name="Goal" type="Node2D" parent="."]
 
@@ -194,6 +202,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="TerrainDecor" type="Node2D" parent="."]
+z_index = -3
 
 [node name="circle_dot" type="Sprite" parent="TerrainDecor"]
 position = Vector2( 512, 304 )
@@ -236,6 +245,19 @@ position = Vector2( 88, 80.0001 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 10 )
 flip_h = true
+
+[node name="Label" type="Label" parent="TerrainDecor"]
+margin_left = 803.0
+margin_top = 576.0
+margin_right = 994.0
+margin_bottom = 598.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 0.596078 )
+text = "space = pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="cest_le_but" from="." to="Hud" method="_on_Main_cest_le_but"]
 [connection signal="body_entered" from="Goal/Goal Gauche" to="." method="_on_Goal_Gauche_body_entered"]
 [connection signal="body_entered" from="Goal/Goal Droite" to="." method="_on_Goal_Droite_body_entered"]
 [connection signal="body_entered" from="ZoneMap/Area2DGauche" to="." method="_on_Area2DGauche_body_entered"]

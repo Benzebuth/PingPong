@@ -2,12 +2,15 @@ extends Node2D
 
 onready var ball_obj = preload("res://scene/Ball.tscn").instance()
 onready var new_goal = preload("res://scene/Goal.tscn").instance()
-
+onready var audio_sc = preload("res://scene/AudioCrowdWin.tscn")
 
 var scorePone: = 0
 var scorePtwo: = 0
 var direction_actuel_ball: = 1
 onready var monTimer = $TimerBut
+
+
+signal cest_le_but
 
 func _ready():
 	ball_obj.position = Vector2(500,300)
@@ -16,27 +19,29 @@ func _ready():
 
 ### Goal pour P2
 func _on_Goal_Gauche_body_entered(body):
+	
+	var newcrowdsound = audio_sc.instance()
+	add_child(newcrowdsound)
+	emit_signal("cest_le_but")
 	add_child(new_goal)
 	scorePtwo += 1
 	$Hud/HBoxContainer/CenterContainer/HBoxContainer/score_P2.text = str(scorePtwo)
-	new_goal.get_node("Score_p1").text = str(scorePone)
 	new_goal.get_node("Score_p2").text = str(scorePtwo)
-	body.queue_free()
+	body.queue_free() # ball delete
 	monTimer.start()
-	add_child(monTimer)
-#	print(scorePone, " - ", scorePtwo)
 
 ### Goal pour P1
 func _on_Goal_Droite_body_entered(body):
+	
+	var newcrowdsound = audio_sc.instance()
+	add_child(newcrowdsound)
+	emit_signal("cest_le_but")
 	add_child(new_goal)
 	scorePone += 1
 	$Hud/HBoxContainer/CenterContainer/HBoxContainer/score_P1.text = str(scorePone)
 	new_goal.get_node("Score_p1").text = str(scorePone)
-	new_goal.get_node("Score_p2").text = str(scorePtwo)
-	body.queue_free()
+	body.queue_free() # ball delete
 	monTimer.start()
-	add_child(monTimer)
-#	print(scorePone," - ", scorePtwo)
 
 
 

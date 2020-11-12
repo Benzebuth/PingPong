@@ -1,6 +1,6 @@
 extends Control
 
-
+onready var pause_background = preload("res://scene/PauseBackground.tscn").instance()
 var last_key_presse
 var array_of_bind
 
@@ -14,6 +14,16 @@ func _ready():
 	
 
 func _input(event):
+	if Input.is_action_just_pressed("ui_accept"):
+		if not get_tree().paused:
+			get_tree().paused = true
+			get_parent().add_child(pause_background)
+			$HBoxContainer/ZoneBoutonPause/Button/AnimatedSprite.play("pause")
+		else:
+			get_tree().paused = false
+			get_parent().remove_child(pause_background)
+			$HBoxContainer/ZoneBoutonPause/Button/AnimatedSprite.play("play")
+
 	if event is InputEventKey :
 		last_key_presse = event
 #		print(last_key_presse.scancode)
@@ -55,3 +65,8 @@ func _on_Button_toggled(button_pressed):
 		$HBoxContainer/ZoneBoutonPause/Button/AnimatedSprite.play("play")
 		get_tree().paused = false
 
+func _on_Main_cest_le_but():
+	$AudioStreamPlayer.playing = true
+	
+
+	

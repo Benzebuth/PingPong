@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/crowd_en_E.wav-a11b40ef5e8dd262e636899b1c0e0b82.sample"
+
+[deps]
+
+source_file="res://ressource/audio/crowd_en_E.wav"
+dest_files=[ "res://.import/crowd_en_E.wav-a11b40ef5e8dd262e636899b1c0e0b82.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
