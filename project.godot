@@ -124,6 +124,7 @@ ui_down_player2={
 
 [physics]
 
+common/physics_fps=144
 2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]

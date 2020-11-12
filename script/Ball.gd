@@ -23,9 +23,9 @@ func _integrate_forces(_state):
 
 func setting_ball(direction_actu):
 	if direction_actu == 1:
-		thrust = Vector2(-5,0)
+		thrust = Vector2(-2,0)
 	if direction_actu == -1:
-		thrust = Vector2(5,0)
+		thrust = Vector2(2,0)
 
 func _on_Ball_body_entered(body):
 	var newsound = sound_tick_sc_.instance()

@@ -16,8 +16,10 @@ z_index = -1
 collision_mask = 30
 physics_material_override = SubResource( 1 )
 custom_integrator = true
-contacts_reported = 24
+continuous_cd = 2
+contacts_reported = 2
 contact_monitor = true
+can_sleep = false
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -27,6 +29,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="BallFX" parent="." instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0.196078 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
