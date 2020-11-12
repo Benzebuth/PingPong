@@ -5,14 +5,6 @@ var last_key_presse
 var array_of_bind
 
 
-func _ready():
-	var event = InputEventKey.new()
-	event.scancode = KEY_T
-	InputMap.add_action('test')
-	InputMap.action_add_event('test', event)
-
-	
-
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
 		if not get_tree().paused:

@@ -23,7 +23,6 @@ _global_script_class_icons={
 config/name="pingpong"
 run/main_scene="res://scene/Main.tscn"
 config/icon="res://ressource/SpaceLeafPixelLogo.png"
-config/windows_native_icon="res://ressource/SpaceLeafPixelLogo.ico"
 
 [display]
 
