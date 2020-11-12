@@ -4,6 +4,8 @@ extends Control
 onready var pause_background = preload("res://scene/PauseBackground.tscn").instance()
 var last_key_presse
 
+signal bot_mode_signal
+
 ### Methods
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -58,6 +60,10 @@ func _on_Button_toggled(button_pressed):
 
 func _on_Main_cest_le_but():
 	$AudioStreamPlayer.playing = true
-	
 
-	
+
+# Activation bot quand check
+func _on_CheckBox_toggled(button_pressed):
+	emit_signal("bot_mode_signal", button_pressed)
+
+

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ressource/redrocketacad.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://script/Hud.gd" type="Script" id=2]
 [ext_resource path="res://ressource/arrow_white.png" type="Texture" id=3]
 [ext_resource path="res://ressource/pause_button.png" type="Texture" id=4]
 [ext_resource path="res://ressource/audio/alarm_grave.wav" type="AudioStream" id=5]
+[ext_resource path="res://ressource/BLADRMF.TTF" type="DynamicFontData" id=6]
 
 [sub_resource type="Theme" id=1]
 
@@ -39,6 +40,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 6 )
+
 [node name="Hud" type="CenterContainer"]
 pause_mode = 2
 rect_min_size = Vector2( 1024, 0 )
@@ -50,8 +54,8 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 141.0
-margin_right = 883.0
+margin_left = 75.0
+margin_right = 949.0
 margin_bottom = 50.0
 alignment = 1
 __meta__ = {
@@ -59,9 +63,9 @@ __meta__ = {
 }
 
 [node name="ZoneBoutonP1" type="Control" parent="HBoxContainer"]
-margin_right = 80.0
+margin_right = 100.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 80, 50 )
+rect_min_size = Vector2( 100, 50 )
 
 [node name="HBoxContainerP1" type="HBoxContainer" parent="HBoxContainer/ZoneBoutonP1"]
 margin_right = 40.0
@@ -99,14 +103,14 @@ __meta__ = {
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 84.0
-margin_right = 284.0
+margin_left = 104.0
+margin_right = 344.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 200, 0 )
+rect_min_size = Vector2( 240, 0 )
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
-margin_left = 288.0
-margin_right = 448.0
+margin_left = 348.0
+margin_right = 508.0
 margin_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -147,8 +151,8 @@ __meta__ = {
 }
 
 [node name="ZoneBoutonPause" type="Control" parent="HBoxContainer"]
-margin_left = 452.0
-margin_right = 502.0
+margin_left = 512.0
+margin_right = 562.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 0 )
 
@@ -171,16 +175,51 @@ animation = "play"
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 506.0
-margin_right = 658.0
+margin_left = 566.0
+margin_right = 686.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 152, 0 )
+rect_min_size = Vector2( 120, 0 )
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+margin_left = 690.0
+margin_right = 770.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 80, 25 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/Control/HBoxContainer"]
+margin_top = 11.0
+margin_right = 48.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 6 )
+text = "Bot :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/Control/HBoxContainer"]
+margin_left = 52.0
+margin_right = 76.0
+margin_bottom = 40.0
+focus_mode = 0
+button_mask = 3
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ZoneBoutonP2" type="Control" parent="HBoxContainer"]
-margin_left = 662.0
-margin_right = 742.0
+margin_left = 774.0
+margin_right = 874.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 80, 50 )
+rect_min_size = Vector2( 100, 50 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ZoneBoutonP2"]
 margin_right = 40.0
@@ -216,5 +255,6 @@ volume_db = -5.0
 [connection signal="pressed" from="HBoxContainer/ZoneBoutonP1/HBoxContainerP1/Button_p1mod_up" to="." method="_on_Button_p1mod_up_pressed"]
 [connection signal="pressed" from="HBoxContainer/ZoneBoutonP1/HBoxContainerP1/Button_p1mod_down" to="." method="_on_Button_p1mod_down_pressed"]
 [connection signal="toggled" from="HBoxContainer/ZoneBoutonPause/Button" to="." method="_on_Button_toggled"]
+[connection signal="toggled" from="HBoxContainer/Control/HBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="HBoxContainer/ZoneBoutonP2/HBoxContainer/Button_p2mod_up" to="." method="_on_Button_p2mod_up_pressed"]
 [connection signal="pressed" from="HBoxContainer/ZoneBoutonP2/HBoxContainer/Button_p2mod_down" to="." method="_on_Button_p2mod_down_pressed"]

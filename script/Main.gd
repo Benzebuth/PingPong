@@ -1,21 +1,26 @@
 extends Node2D
+class_name MainScene
 
 ###Attributs
-onready var ball_obj = preload("res://scene/Ball.tscn").instance()
-onready var new_goal = preload("res://scene/Goal.tscn").instance()
-onready var audio_sc = preload("res://scene/AudioCrowdWin.tscn")
-onready var monTimer = $TimerBut
+onready var ball_obj: = preload("res://scene/Ball.tscn").instance()
+onready var new_goal: = preload("res://scene/Goal.tscn").instance()
+onready var audio_sc: = preload("res://scene/AudioCrowdWin.tscn")
+onready var monTimer: = $TimerBut
 
 var scorePone: = 0
 var scorePtwo: = 0
 var direction_actuel_ball: = 1
+var ball_id_actuelle: = 0
 
 signal cest_le_but
+signal id_ball_bot
 
 ###Methods
 func _ready():
 	ball_obj.position = Vector2(500,300)
 	add_child(ball_obj)
+	ball_id_actuelle = ball_obj.get_instance_id()
+	emit_signal("id_ball_bot", ball_id_actuelle)
 	
 
 ### Goal pour P2
@@ -69,4 +74,6 @@ func _on_TimerBut_timeout():
 		ball_obj.position = Vector2(450, 300)
 	ball_obj.setting_ball(direction_actuel_ball)
 	add_child(ball_obj)
+	ball_id_actuelle = ball_obj.get_instance_id()
+	emit_signal("id_ball_bot", ball_id_actuelle)
 

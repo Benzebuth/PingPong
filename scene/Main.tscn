@@ -258,8 +258,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="cest_le_but" from="." to="Hud" method="_on_Main_cest_le_but"]
+[connection signal="id_ball_bot" from="." to="PlayerOne2" method="_on_Main_id_ball_bot"]
 [connection signal="body_entered" from="Goal/Goal Gauche" to="." method="_on_Goal_Gauche_body_entered"]
 [connection signal="body_entered" from="Goal/Goal Droite" to="." method="_on_Goal_Droite_body_entered"]
+[connection signal="bot_mode_signal" from="Hud" to="PlayerOne2" method="_on_Hud_bot_mode_signal"]
 [connection signal="body_entered" from="ZoneMap/Area2DGauche" to="." method="_on_Area2DGauche_body_entered"]
 [connection signal="body_entered" from="ZoneMap/Area2DDroite" to="." method="_on_Area2DDroite_body_entered"]
 [connection signal="timeout" from="TimerBut" to="." method="_on_TimerBut_timeout"]
